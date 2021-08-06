@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Add page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="fs-4">Добавление заказа</span>
+    </a>
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/">Главная страница</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/table">Список заказов за месяц</a>
+    </nav>
+</div>
+<div>
+    <div class="px-3">
+        <form method="post" action="/add">
+            <div class="row g-3">
+                <div class="col-6">
+                    <label for="customer" class="form-label">Имя покупателя</label>
+                    <input type="text" class="form-control" id="customer" name="customer" placeholder="" value=""
+                           required="">
+                    <div class="invalid-feedback">
+                        Valid first name is required.
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <label for="price" class="form-label">Стоимость заказа</label>
+                    <input type="number" class="form-control" id="price" name="price" placeholder="" value=""
+                           required="">
+                    <div class="invalid-feedback">
+                        Valid first name is required.
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <label for="phone" class="form-label">Телефон покупателя</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="79995554433"
+                           required="">
+                    <div class="invalid-feedback">
+                        Please enter a valid email address for shipping updates.
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <label for="address" class="form-label">Адрес доставки</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="" required="">
+                    <div class="invalid-feedback">
+                        Please enter your shipping address.
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <label for="orderDate" class="form-label">Дата заказа</label>
+                    <input type="date" class="form-control" id="orderDate" name="orderDate" placeholder="" required="">
+                    <div class="invalid-feedback">
+                        Please enter your shipping address.
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <label for="deliveryDate" class="form-label">Дата доставки</label>
+                    <input type="date" class="form-control" id="deliveryDate" name="deliveryDate" placeholder="" required="">
+                    <div class="invalid-feedback">
+                        Please enter your shipping address.
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <label for="source" class="form-label">Источник заказа</label>
+                    <select class="form-select" id="source" name="source" required="">
+                        <option value="">Выберите...</option>
+                        <option>ВК</option>
+                        <option>Инстаграм</option>
+                        <option>Сайт</option>
+                        <option>Whatsapp</option>
+                        <option>Другое</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid country.
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <label for="comments" class="form-label">Комментарии к заказу</label>
+                    <input type="text" class="form-control" id="comments" name="comments" placeholder="" value="">
+                </div>
+
+            </div>
+            <button class="btn btn-lg btn-primary" type="submit">Добавить заказ</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

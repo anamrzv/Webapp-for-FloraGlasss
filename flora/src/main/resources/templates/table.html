@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Page with table</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a class="d-flex align-items-center text-dark text-decoration-none">
+        <p class="fs-4" th:text="'Список заказов за '+${month}">
+    </a>
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/">Главная страница</a>
+        <a class="me-3 py-2 text-dark text-decoration-none" href="/add">Добавить новый заказ</a>
+    </nav>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Цена</th>
+            <th>Заказчик</th>
+            <th>Телефон</th>
+            <th>Адрес</th>
+            <th>Дата заказа</th>
+            <th>Дата доставки</th>
+            <th>Источник</th>
+            <th>Комментарии</th>
+        </tr>
+        </thead>
+
+        <div th:each="element: ${ordersList}">
+        <tbody>
+            <tr>
+                <td><b th:text="${element.numInThisMonth}"></b></td>
+                <td><p th:text="${element.price}"></td>
+                <td><p th:text="${element.customer}"></td>
+                <td><p th:text="${element.phone}"></td>
+                <td><p th:text="${element.address}"></td>
+                <td><p th:text="${element.orderDate}"></td>
+                <td><p th:text="${element.deliveryDate}"></td>
+                <td><p th:text="${element.source}"></td>
+                <td><p th:text="${element.comments}"></td>
+                <td><a th:href="'/order/'+${element.id}+'/edit'" class="btn btn-warning">Редактировать</a></td>
+                <td><a th:href="'/order/'+${element.id}+'/remove'" class="btn btn-warning">Удалить</a></td>
+            </tr>
+        </tbody>
+        </div>
+    </table>
+</div>
+</body>
+</html>

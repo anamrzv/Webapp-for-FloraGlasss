@@ -17,7 +17,7 @@ public class Order {
     private int numInThisMonth;
     @Column
     private int price;
-    @Column(name = "customer")
+    @Column
     private String customer;
     @Column
     private String phone;
