@@ -33,7 +33,7 @@
         </thead>
 
         <div th:each="element: ${ordersList}">
-        <tbody>
+            <tbody>
             <tr>
                 <td><b th:text="${element.numInThisMonth}"></b></td>
                 <td><p th:text="${element.price}"></td>
@@ -45,9 +45,13 @@
                 <td><p th:text="${element.source}"></td>
                 <td><p th:text="${element.comments}"></td>
                 <td><a th:href="'/order/'+${element.id}+'/edition'" class="btn btn-warning">Редактировать</a></td>
-                <td><a th:href="'/order/'+${element.id}+'/remove'" class="btn btn-warning">Удалить</a></td>
+                <td>
+                    <form th:action="'/order/'+${element.id}+'/remove'" method="post">
+                        <button class="btn btn-warning" type="submit">Удалить</button>
+                    </form>
+                </td>
             </tr>
-        </tbody>
+            </tbody>
         </div>
     </table>
 </div>

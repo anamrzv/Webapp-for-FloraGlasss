@@ -18,7 +18,6 @@ import java.util.Optional;
 
 @Controller
 public class EditController {
-
     @Autowired
     private OrderRepository orderRepository;
 
@@ -41,7 +40,7 @@ public class EditController {
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         if (comments.isEmpty()) comments = "--";
-        Order editedOrder = orderRepository.findById(id).orElse(null);
+        Order editedOrder = orderRepository.findById(id).orElseThrow();
         if (editedOrder!=null) {
             editedOrder.setCustomer(customer);
             editedOrder.setPrice(price);
