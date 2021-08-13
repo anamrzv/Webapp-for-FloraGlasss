@@ -40,6 +40,6 @@ public class AddController {
             newOrder.setNumInThisMonth(1);
         else newOrder.setNumInThisMonth(orderRepository.getListOfOrders().getLast().getNumInThisMonth() + 1);
         orderRepository.save(newOrder);
-        return "redirect:/start";
+        return "redirect:/table";
     }
 }
