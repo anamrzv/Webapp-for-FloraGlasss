@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDate;
-import java.util.Map;
+import java.util.LinkedList;
 
 @Controller
 public class TableController {
@@ -17,7 +17,7 @@ public class TableController {
 
     @GetMapping("/table")
     public String showListOfOrders(Model model) {
-        Iterable<Order> orders = orderRepository.findAll();
+        LinkedList<Order> orders = orderRepository.getSortedOrdersInThisMonth();
         model.addAttribute("ordersList", orders);
         model.addAttribute("month", LocalDate.now().getMonth());
         return "table";

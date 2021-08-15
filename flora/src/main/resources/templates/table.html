@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Page with table</title>
+    <title>Таблица заказов</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-0 border-bottom">
     <a class="d-flex align-items-center text-dark text-decoration-none">
-        <p class="fs-4" th:text="'Список заказов за '+${month}">
+        <p class="fs-4 m-1 p-1" th:text="'Список заказов за '+${month}">
     </a>
     <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <a class="me-3 py-2 text-dark text-decoration-none" href="/">Главная страница</a>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-bordered table-active">
         <thead>
         <tr>
             <th>Номер</th>
@@ -29,6 +29,8 @@
             <th>Дата доставки</th>
             <th>Источник</th>
             <th>Комментарии</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
 
@@ -44,10 +46,10 @@
                 <td><p th:text="${element.deliveryDate}"></td>
                 <td><p th:text="${element.source}"></td>
                 <td><p th:text="${element.comments}"></td>
-                <td><a th:href="'/order/'+${element.id}+'/edition'" class="btn btn-warning">Редактировать</a></td>
+                <td><a th:href="'/order/'+${element.id}+'/edition'" class="btn btn-success">Редактировать</a></td>
                 <td>
                     <form th:action="'/order/'+${element.id}+'/remove'" method="post">
-                        <button class="btn btn-warning" type="submit">Удалить</button>
+                        <button class="btn btn-danger" type="submit">Удалить</button>
                     </form>
                 </td>
             </tr>
