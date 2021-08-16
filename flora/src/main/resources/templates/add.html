@@ -6,14 +6,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-    <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-        <span class="fs-4">Добавление заказа</span>
-    </a>
-    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <a class="me-3 py-2 text-dark text-decoration-none" href="/">Главная страница</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="/table">Список заказов за месяц</a>
-    </nav>
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4">Добавление заказа</span>
+        </a>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/table" class="nav-link active" aria-current="page">Список заказов</a></li>
+            <li class="nav-item"><a href="/" class="nav-link">Главная страница</a></li>
+        </ul>
+    </header>
 </div>
 <div>
     <div class="px-3">

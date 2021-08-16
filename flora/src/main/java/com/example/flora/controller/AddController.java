@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 
 @Controller
 public class AddController {
@@ -34,16 +32,13 @@ public class AddController {
                 .withPrice(price)
                 .withPhone(phone)
                 .withAddress(address)
-                .withOrderDate(LocalDate.parse(orderDate,formatter))
-                .withDeliveryDate(LocalDate.parse(deliveryDate,formatter))
+                .withOrderDate(LocalDate.parse(orderDate, formatter))
+                .withDeliveryDate(LocalDate.parse(deliveryDate, formatter))
                 .withComments(comments)
                 .withSource(source)
                 .build();
-        if (!orderRepository.getListOfOrders().getLast().getOrderDate().getMonth().equals(newOrder.getOrderDate().getMonth())) newOrder.setNumInThisMonth(orderRepository.getLastNumInThisMonth()+1);
-        else {
-            if (orderRepository.getLastNumInMonth(newOrder.getOrderDate())==null) newOrder.setNumInThisMonth(1);
-            else newOrder.setNumInThisMonth(orderRepository.getLastNumInMonth(newOrder.getOrderDate())+1);
-        }
+        if (orderRepository.getLastNumInMonth(newOrder.getOrderDate()) == null) newOrder.setNumInThisMonth(1);
+        else newOrder.setNumInThisMonth(orderRepository.getLastNumInMonth(newOrder.getOrderDate()) + 1);
 
         orderRepository.save(newOrder);
         return "redirect:/table";
